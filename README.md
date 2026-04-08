@@ -20,11 +20,10 @@ text = "This is a simple example."
 tokenizer = BytePieceTokenizer()
 tokenizer.train(text, 400)
 
-encoded = tokenizer.encode(text)
-decoded = tokenizer.decode(encoded)
-
-print(encoded)
-print(decoded)
+tokenizer.save("bytepiece_tokenizer")
+loaded_tokenizer = BytePieceTokenizer.from_model("bytepiece_tokenizer")
+encoded = loaded_tokenizer.encode(text)
+decoded = loaded_tokenizer.decode(encoded)
 ```
 
 ## API
@@ -45,3 +44,9 @@ Decodes a list of token IDs back into text.
 
 - Inspired by the design of the `minbpe` repository.
 - Intended as a simple tokenizer implementation.
+
+## TODO
+
+- Stress test on more complex text inputs
+- Evaluate performance on larger training corpora
+- Compare performance with other tokenization
