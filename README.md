@@ -12,24 +12,10 @@ A simple byte-piece tokenizer implementation, inspired by the `minbpe` repositor
 from bptoken.bytepiecestk import BytePieceTokenizer
 ```
 
-## Quick Start
-
-```python
-from bptoken.bytepiecestk import BytePieceTokenizer
-
-tokenizer = BytePieceTokenizer()
-tokenizer.train(text, 400)
-
-encoded = tokenizer.encode(text)
-decoded = tokenizer.decode(encoded)
-```
-
 ## Example
 
 ```python
 text = "This is a simple example."
-
-from bptoken.bytepiecestk import BytePieceTokenizer
 
 tokenizer = BytePieceTokenizer()
 tokenizer.train(text, 400)
