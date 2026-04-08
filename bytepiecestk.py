@@ -41,7 +41,6 @@ class BytePieceTokenizer(RegexTokenizer):
             if (not counts) or (max(counts.values()) < 2):
                 raise ValueError(f"No more pairs to merge after {i} merges. Consider reducing target_vocab_size or providing more training data.")
             best_tuple = max(counts, key=counts.get)
-            print(best_tuple, )
             new_idx = 256 + i
             self.merges[best_tuple] = new_idx
             tokens = [merge_bytepieces(chunk, best_tuple, new_idx) for chunk in tokens]
